@@ -13,7 +13,9 @@ test.before(t => {
 test(t => {
   assert.fileContent('package.json', /"eslint":/)
   assert.fileContent('package.json', '"name": "name-node"')
-  assert.file(['.eslintrc', '.editorconfig', '.gitignore', 'Dockerfile', '.gitlab-ci.yml'])
+  assert.file(['.eslintrc', '.editorconfig', '.gitignore', '.gitlab-ci.yml'])
+  assert.file(['Dockerfile', 'docker-compose.yml', 'index.js'])
   assert.file(['development/pm2.yml', 'development/rancher-compose.yml', 'development/run.sh'])
   assert.file(['production/pm2.yml', 'production/rancher-compose.yml', 'production/run.sh'])
+  assert.file(['test/index.js'])
 })

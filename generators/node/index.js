@@ -24,8 +24,10 @@ module.exports = generators.Base.extend({
     this.copy('.gitlab-ci.yml')
     this.copy('Dockerfile')
     this.copy('docker-compose.yml')
+    this.copy('index.js')
     this.directory('development')
     this.directory('production')
+    this.directory('test')
   },
   installing: function () {
     this.npmInstall()
