@@ -1,0 +1,6 @@
+bae:
+  restart: always
+  image: "docker.blued.cn/blued/<%= name %>"
+  privileged: true
+  ports:
+    - 8000

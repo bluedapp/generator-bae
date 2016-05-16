@@ -12,17 +12,20 @@ module.exports = generators.Base.extend({
   initializing: function () {
     this.pkg = require(path.join(__dirname, '../../package.json'))
   },
-  writing: {
-    mkdir: function () {
-      if (this.name !== this.cwd) {
-        mkdirp(this.name)
-        this.destinationRoot(path.join(this.destinationRoot(), this.name))
-        console.log(this.destinationRoot())
-      }
-    },
-    package: function () {
-      this.template('package.json', {name: this.name})
+  writing: function () {
+    if (this.name !== this.cwd) {
+      mkdirp(this.name)
+      this.destinationRoot(path.join(this.destinationRoot(), this.name))
     }
+    this.template('package.json', {name: this.name})
+    this.copy('.eslintrc')
+    this.copy('.editorconfig')
+    this.copy('.gitignore')
+    this.copy('.gitlab-ci.yml')
+    this.copy('Dockerfile')
+    this.copy('docker-compose.yml')
+    this.directory('development')
+    this.directory('production')
   },
   installing: function () {
     this.npmInstall()

@@ -1,0 +1,10 @@
+name: <%= name %>
+script: /usr/src/app/index.js
+max_memory_restart: 150M
+instances: 0
+exec_mode: cluster
+error_file: /usr/src/app/logs/error.logs
+out_file: /usr/src/app/logs/out.logs
+merge_logs: true
+env:
+  NODE_ENV: production
