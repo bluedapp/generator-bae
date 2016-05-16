@@ -8,7 +8,6 @@ yeoman generator for bae
 
 
 
-
 [npm-image]: https://img.shields.io/npm/v/generator-bae.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/generator-bae
 [travis-image]: https://img.shields.io/travis/bluedapp/generator-bae/master.svg?style=flat-square
