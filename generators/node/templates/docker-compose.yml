@@ -1,4 +1,4 @@
-bae:
+<%= project %>:
   restart: always
   image: "docker.blued.cn/blued/<%= project %>"
   privileged: true
