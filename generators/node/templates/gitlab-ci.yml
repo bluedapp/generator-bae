@@ -1,13 +1,13 @@
 build_tags:
   script:
-    - docker build --build-arg env=production -t docker.blued.cn/blued/<%= name %>:"$CI_BUILD_TAG" .
-    - docker push docker.blued.cn/blued/<%= name %>:"$CI_BUILD_TAG"
+    - docker build --build-arg env=production -t docker.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG" .
+    - docker push docker.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG"
   only:
   - tags
 
 build_master:
   script:
-    - docker build --build-arg env=development -t docker.blued.cn/blued/<%= name %>:"$CI_BUILD_ID" .
-    - docker push docker.blued.cn/blued/<%= name %>:"$CI_BUILD_ID"
+    - docker build --build-arg env=development -t docker.blued.cn/blued/<%= project %>:"$CI_BUILD_ID" .
+    - docker push docker.blued.cn/blued/<%= project %>:"$CI_BUILD_ID"
   only:
   - master

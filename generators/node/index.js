@@ -5,25 +5,30 @@ const mkdirp = require('mkdirp')
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments)
-    this.argument('name', {type: String, required: false})
+    this.option('project', {
+      type: String,
+      required: false,
+      defaults: ''
+    })
     this.cwd = path.basename(process.cwd())
-    this.name = this.name || this.cwd
+    this.project = this.options.project || this.cwd
   },
   initializing: function () {
     this.pkg = require(path.join(__dirname, '../../package.json'))
   },
   writing: function () {
-    if (this.name !== this.cwd) {
-      mkdirp(this.name)
-      this.destinationRoot(path.join(this.destinationRoot(), this.name))
+    if (this.project !== this.cwd) {
+      mkdirp(this.project)
+      this.destinationRoot(path.join(this.destinationRoot(), this.project))
     }
-    this.template('package.json', {name: this.name})
+    console.log(this.destinationRoot())
+    this.copy('package.json')
     this.copy('eslintrc', '.eslintrc')
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
-    this.template('gitlab-ci.yml', '.gitlab-ci.yml', {name: this.name})
-    this.template('Dockerfile', {name: this.name})
-    this.template('docker-compose.yml', {name: this.name})
+    this.copy('gitlab-ci.yml', '.gitlab-ci.yml')
+    this.copy('Dockerfile')
+    this.copy('docker-compose.yml')
     this.copy('index.js')
     this.directory('development')
     this.directory('production')

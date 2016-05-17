@@ -1,10 +1,11 @@
 {
   "name": "generator-bae",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "yeoman generator for bae",
   "main": "index.js",
   "scripts": {
-    "test": "ava test/*"
+    "test": "ava test/*",
+    "test:watch": "ava --watch test/*"
   },
   "repository": {
     "type": "git",

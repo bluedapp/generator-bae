@@ -1,4 +1,4 @@
-name: <%= name %>
+name: <%= project %>
 script: /usr/src/app/index.js
 max_memory_restart: 150M
 instances: 1

@@ -1,6 +1,6 @@
 bae:
   restart: always
-  image: "docker.blued.cn/blued/<%= name %>"
+  image: "docker.blued.cn/blued/<%= project %>"
   privileged: true
   ports:
     - 8000

@@ -1,5 +1,4 @@
 const generators = require('yeoman-generator')
-const path = require('path')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -15,7 +14,10 @@ module.exports = generators.Base.extend({
       defaults: ''
     })
   },
-  initializing: function () {
-    this.composeWith(`bae:${this.options.template} ${this.options.project}`)
+  installing: function () {
+    this.composeWith(`bae:${this.options.template}`,
+      { options: { project: this.options.project } },
+      {local: require.resolve(`../${this.options.template}`)}
+    )
   }
 })
