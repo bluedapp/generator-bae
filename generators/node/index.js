@@ -21,7 +21,6 @@ module.exports = generators.Base.extend({
       mkdirp(this.project)
       this.destinationRoot(path.join(this.destinationRoot(), this.project))
     }
-    console.log(this.destinationRoot())
     this.copy('package.json')
     this.copy('eslintrc', '.eslintrc')
     this.copy('editorconfig', '.editorconfig')
@@ -30,6 +29,7 @@ module.exports = generators.Base.extend({
     this.copy('Dockerfile')
     this.copy('docker-compose.yml')
     this.copy('index.js')
+    this.copy('README.md')
     this.directory('development')
     this.directory('production')
     this.directory('test')

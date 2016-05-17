@@ -1,6 +1,6 @@
 {
   "name": "generator-bae",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "yeoman generator for bae",
   "main": "index.js",
   "scripts": {
