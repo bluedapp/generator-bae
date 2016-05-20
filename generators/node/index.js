@@ -36,10 +36,12 @@ module.exports = generators.Base.extend({
     this.directory('test')
   },
   installing: function () {
-    if (which.sync('cnpm')) {
-      this.runInstall('cnpm')
-    } else {
-      this.npmInstall()
-    }
+    which('cnpm', (err, resolvedPath) => {
+      if (err) {
+        this.npmInstall()
+      } else {
+        this.runInstall('cnpm')
+      }
+    })
   }
 })
