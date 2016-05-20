@@ -1,6 +1,7 @@
 const generators = require('yeoman-generator')
 const path = require('path')
 const mkdirp = require('mkdirp')
+const which = require('which')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -35,6 +36,10 @@ module.exports = generators.Base.extend({
     this.directory('test')
   },
   installing: function () {
-    this.npmInstall()
+    if (which.sync('cnpm')) {
+      this.runInstall('cnpm')
+    } else {
+      this.npmInstall()
+    }
   }
 })

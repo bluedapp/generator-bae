@@ -11,9 +11,9 @@ RUN cnpm install --production
 
 COPY . /usr/src/app
 
-RUN mkdir /etc/service/bae
-COPY ./$env/run.sh /etc/service/bae/run
-RUN chmod +x /etc/service/bae/run
+RUN mkdir /etc/service/<%= project %>
+COPY ./$env/run.sh /etc/service/<%= project %>/run
+RUN chmod +x /etc/service/<%= project %>/run
 
 EXPOSE 8000
 

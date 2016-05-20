@@ -26,4 +26,5 @@ test(t => {
   assert.fileContent('docker-compose.yml', `${project}`)
   assert.fileContent('.gitlab-ci.yml', `${project}`)
   assert.fileContent('README.md', `# ${project}`)
+  assert.fileContent('Dockerfile', `/etc/service/${project}`)
 })

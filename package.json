@@ -1,6 +1,6 @@
 {
   "name": "generator-bae",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "yeoman generator for bae",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/bluedapp/generator-bae#readme",
   "dependencies": {
     "mkdirp": "^0.5.1",
+    "which": "^1.2.9",
     "yeoman-generator": "^0.23.3"
   },
   "devDependencies": {
