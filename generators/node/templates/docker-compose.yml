@@ -1,6 +1,8 @@
 <%= project %>:
   restart: always
   image: "docker.blued.cn/blued/<%= project %>"
+  labels:
+    io.rancher.container.pull_image: always
   privileged: true
   ports:
     - 8000

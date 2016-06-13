@@ -1,4 +1,4 @@
-FROM docker.blued.cn/mds/node:6
+FROM docker.blued.cn/blued/node
 ARG env=production
 
 
