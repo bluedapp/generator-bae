@@ -1,6 +1,7 @@
 <%= project %>:
   restart: always
   image: "docker.blued.cn/blued/<%= project %>"
+  log_driver: fluentd
   labels:
     io.rancher.container.pull_image: always
   privileged: true
