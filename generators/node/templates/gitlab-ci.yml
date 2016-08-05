@@ -4,12 +4,16 @@ build_tags:
     - docker push docker.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG"
     - docker rmi docker.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG"
   only:
-  - tags
+  - /^pro.*$/
+  except:
+  - branches
 
 build_master:
   script:
-    - docker build --build-arg env=development -t docker.blued.cn/blued/<%= project %> .
-    - docker push docker.blued.cn/blued/<%= project %>
-    - docker rmi docker.blued.cn/blued/<%= project %>
+    - docker build --build-arg env=development -t docker-test.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG" .
+    - docker push docker-test.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG"
+    - docker rmi docker-test.blued.cn/blued/<%= project %>:"$CI_BUILD_TAG"
   only:
-  - master
+  - /^dev.*$/
+  except:
+  - branches
